@@ -22,17 +22,17 @@
 
 
 
-
-
-<div class = "row text-center" style="display:flex; flex-wrap:wrap">
+<div class = "d-flex align-content-start flex-wrap">
     <%  projects.forEach(function(project){%>
-        <div class="col-md-3 col-sm-6">
-            <div class="thumbnail">
-                <img src="<%=project.image%>" alt="pic">
-                <div class="caption">
-                    <h4><%=project.name%></h4>    
+        <div class="col-md-4 card-deck">
+            <div class="card" >
+                <img class="card-image-top img-fluid img-thumbnail" src="<%=project.image%>" alt="pic" style="min-height: 150px">
+                <div class="card-body">
+                    <div class="card-title">
+                        <h4><%=project.name%></h4>    
+                    </div>
+                    <a href="/projects/<%= project._id %>" class="card-link">Show more</a>
                 </div>
-                <a href="/projects/<%= project._id %>">Show more</a>
             </div>    
         </div>
     <%}); %>
