@@ -1,6 +1,6 @@
 var mongoose    =   require("mongoose"),
     Project  =   require("./models/project"),
-    Comment     =   require("./models/comment")
+    User     =   require("./models/user")
     ;
 
 var data = [
@@ -28,14 +28,7 @@ var data = [
 
 
 function seedDB(){
-    // remove all comments
-    Comment.remove({}, function(err){
-        if(err){
-            console.log(err);
-        } else {
-            console.log("Removed Comments!");
-        }
-    });
+ 
     // remove all projects
     Project.remove({}, function(err){
         if(err){
@@ -49,21 +42,7 @@ function seedDB(){
                     console.log(err);
                 } else {
                     console.log("added a project");
-                    // // create a Comment
-                    Comment.create(
-                        {
-                            text: "This place is great, but I wish there was internet",
-                            author: "Homer"
-                        }, function(err, comment){
-                            if(err){
-                                console.log(err);
-                            } else {
-                                project.comments.push(comment);
-                                project.save();
-                                console.log("Created new comment");
-                            }
-                        }
-                    );
+                    
                 }
             });
         });

@@ -5,10 +5,22 @@ var projectSchema = new mongoose.Schema({
     name: String,
     image: String,
     description: String,
-    comments: [
+    jobs: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Comment"
+            ref: "Job"
+        }
+    ],
+    tools: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Tool"
+        }
+    ],
+    workspaces: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Workspace"
         }
     ]
 });

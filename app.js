@@ -4,15 +4,13 @@ var express     = require("express"),
     mongoose    = require("mongoose"),
     passport    = require("passport"),
     LocalStrategy = require("passport-local"),
-    Project  = require("./models/project"),
-    Comment     = require("./models/comment"),
+    Project     = require("./models/project"),
     User        = require("./models/user"),
     seedDB      = require("./seeds");
 
 
 // Requiring routes
-var commentRoutes       = require("./routes/comments"),
-    projectRoutes       = require("./routes/projects"),
+var projectRoutes       = require("./routes/projects"),
     indexRoutes         = require("./routes/index");
 
 // Avoid depreciation warning on mongoose.connect
@@ -58,7 +56,7 @@ app.use(function(req, res, next){
 
 app.use(indexRoutes);
 app.use(projectRoutes);
-app.use(commentRoutes);
+
 
 const port = process.env.PORT || 3000;
 
