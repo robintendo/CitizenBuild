@@ -6,21 +6,25 @@ var express     = require("express"),
     LocalStrategy = require("passport-local"),
     Project     = require("./models/project"),
     User        = require("./models/user"),
-    seedDB      = require("./seeds");
-
+    seedDB      = require("./seeds"),
+    dotenv      = require("dotenv");
+    // aws         = require('aws-sdk');
 
 // Requiring routes
 var projectRoutes       = require("./routes/projects"),
     indexRoutes         = require("./routes/index");
 
+// Loading environment variables from .ENV file - Local testing only
+    // dotenvConfig        = dotenv.config();
+    // console.log(dotenvConfig);
+
+  
+
 // Avoid depreciation warning on mongoose.connect
 mongoose.set('useNewUrlParser', true);
 
-
-// mongoose.connect("mongodb://localhost/yelp_camp");
-
-// From Gorm IDE video
-mongoose.connect('mongodb+srv://robinnorman:cloudyday@cluster0-dqohx.mongodb.net/test?retryWrites=true&w=majority', {
+// Connect to mongo database service
+mongoose.connect('mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@cluster0-dqohx.mongodb.net/test?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true
 }).then(() => {
