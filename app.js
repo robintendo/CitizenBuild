@@ -8,15 +8,14 @@ var express     = require("express"),
     User        = require("./models/user"),
     seedDB      = require("./seeds"),
     dotenv      = require("dotenv");
-    // aws         = require('aws-sdk');
-
+  
 // Requiring routes
 var projectRoutes       = require("./routes/projects"),
     indexRoutes         = require("./routes/index");
 
 // Loading environment variables from .ENV file - Local testing only
-    // dotenvConfig        = dotenv.config();
-    // console.log(dotenvConfig);
+    dotenvConfig        = dotenv.config();
+
 
   
 
